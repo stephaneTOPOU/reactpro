@@ -13,7 +13,8 @@ class App extends Component {
       { id: 1, name: 'Landrine', email: 'landrine@gmail.com', phone: '93542058' },
       { id: 2, name: 'Stéphane', email: 'stephane@gmail.com', phone: '92655030' },
       { id: 3, name: 'Gildas', email: 'gildas@gmail.com', phone: '90460615' }
-    ]
+    ],
+    formVisible:true
   }
   addEmployee = (employee)=>{
     employee.id = Math.random();
@@ -22,13 +23,21 @@ class App extends Component {
       employees:employees
     })
   }
+
+  handleClose=(e)=>{
+    this.setState({
+      formVisible:false
+    })
+  }
+
   render() {
     return (
       <div className="App">
         {/* <Post />
         <Teacher name="GBODUI" email="gbodui@gmail.com" phone="12345678" /> */}
-        <AddEmployee addEmployee={this.addEmployee} />
-        <Employee employees={this.state.employees} />
+        <button onClick={this.handleClose}>Fermer</button>
+        {this.state.formVisible?<AddEmployee addEmployee={this.addEmployee} />:null}
+        {this.state.formVisible?<Employee employees={this.state.employees} />:null}
       </div>
     );
   }

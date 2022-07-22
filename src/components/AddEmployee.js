@@ -16,6 +16,22 @@ class AddEmployee extends Component {
         e.preventDefault();
         this.props.addEmployee(this.state)
     }
+
+    componentDidMount()
+    {
+        console.log("component did Mount method is called");
+    }
+
+    componentDidUpdate()
+    {
+        console.log("component did update method is called");
+    }
+
+    componentWillUnmount()
+    {
+        console.log("component will UnMount method is called")
+    }
+
     render() {
         return (
             <div>
